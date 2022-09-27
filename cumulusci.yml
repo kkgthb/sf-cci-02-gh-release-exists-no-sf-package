@@ -1,0 +1,7 @@
+project:
+  name: github-release-is-most-recent-commit
+  package:
+    name: GitHub release is most recent commit
+  git:
+    default_branch: 'main'
+  source_format: sfdx

@@ -1,0 +1,11 @@
+{
+  "orgName": "GitHub release is most recent commit - Release Test Org",
+  "edition": "Enterprise",
+  "settings": {
+    "securitySettings": {
+      "sessionSettings": {
+        "forceRelogin": false
+      }
+    }
+  }
+}
