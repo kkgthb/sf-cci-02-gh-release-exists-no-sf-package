@@ -10,7 +10,7 @@
 __pycache__
 
 # Robot Framework results
-robot/github-release-is-most-recent-commit/results/
+robot/github-release-exists-no-sf-package/results/
 
 # Salesforce cache
 .sf/

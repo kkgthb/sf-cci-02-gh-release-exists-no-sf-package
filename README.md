@@ -30,7 +30,7 @@ Exception in task dependencies.update_dependencies
 Error: 404 Not Found
 ```
 
-However, if the latest commit to the project that you'd like to include as a dependency happens to be associated with a GitHub release that in turn is associated with a tag whose name begins with "`rel/`," then it **_is_** includable by setting up the calling `cumulusci.yml` like this instead:
+Technically, there's a workaround.  If you structure the calling project's `cumulusci.yml` like this, you can force CumulusCI to use the latest commit to the repository you're trying to include as a dependency, behaving as if there weren't any GitHub releases attatched to the dependency's URL in the first place:
 
 
 ```yaml
@@ -39,8 +39,15 @@ project:
   dependencies:
     - github: 'https://github.com/kkgthb/sf-cci-02-gh-release-is-most-recent-commit'
   dependency_resolutions:
-    preproduction: force_cci_to_use_the_latest_commit_which_also_is_a_properly_formatted_release # You can make this name up, just make it match below.
+    # CCI's "preproduction" setting includes what happens when you execute "cci flow run dev_org"
+    preproduction: force_cci_to_use_the_latest_commit # You can make this name up, just make it match below.
     resolution_strategies:
-      force_cci_to_use_the_latest_commit_which_also_is_a_properly_formatted_release: # You can make this name up, just make it match above.
+      force_cci_to_use_the_latest_commit: # You can make this name up, just make it match above.
         - unmanaged
 ```
+
+The problem with this workaround is that you'll probably end up forcing _all_ GitHub links to look for the latest commit -- even ones like NPSP that have proper packaging-and-releases in place.
+
+So this repository is _**not**_ a role model to emulate when you're developing your own CumulusCI projects that you'd like to see used as dependencies.
+
+It's just a proof-of-concept that I poked at the boundaries of CCI behavior with.

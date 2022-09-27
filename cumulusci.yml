@@ -1,7 +1,7 @@
 project:
-  name: github-release-is-most-recent-commit
+  name: github-release-exists-no-sf-package
   package:
-    name: GitHub release is most recent commit
+    name: GitHub release exists but Salesforce package does not
   git:
     default_branch: 'main'
   source_format: sfdx
